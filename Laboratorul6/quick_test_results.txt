@@ -1,0 +1,291 @@
+STDOUT:
+Feature: Test Mens Page # features/05_mens_page.feature:1
+
+  Background:   # features/05_mens_page.feature:3
+
+  @smoke @normal
+  Scenario: TC1 - Test page loads correctly      # features/05_mens_page.feature:7
+    Given I navigate to the Mens page            # steps/mens_page_steps.py:14
+[STEP] Navigated to Mens page: https://adoring-pasteur-3ae17d.netlify.app/mens.html
+  â†’ Navigated to Mens page
+    Given the Mens page is loaded completely     # steps/mens_page_steps.py:24
+[STEP] Mens page loaded successfully
+  â†’ Verified: Mens page loaded completely
+    When I wait for page to load                 # steps/mens_page_steps.py:31
+  â†’ Waited for page load
+    Then the page should load within 3 seconds   # steps/mens_page_steps.py:38
+[STEP] Mens page loaded successfully
+  âœ— Expected: Load time: 0.03s, Actual: < 3 seconds
+    And all main elements should be visible      # steps/mens_page_steps.py:46
+      | element  |
+      | title    |
+      | products |
+      | header   |
+      | footer   |
+[STEP] Element header not visible
+      Assertion Failed: Not all main elements are visible
+      Captured logging:
+      INFO:WDM:====== WebDriver manager ======
+      INFO:WDM:Get LATEST chromedriver version for google-chrome
+      INFO:WDM:Get LATEST chromedriver version for google-chrome
+      INFO:WDM:Driver [C:\Users\ciprian.panzaru\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+
+    And product images should be loaded          # None
+    And CSS and JS resources should be available # None
+
+  @high
+  Scenario: TC2 - Test navigation menu functionality  # features/05_mens_page.feature:21
+    Given I navigate to the Mens page                 # steps/mens_page_steps.py:14
+[STEP] Navigated to Mens page: https://adoring-pasteur-3ae17d.netlify.app/mens.html
+  â†’ Navigated to Mens page
+    Given the navigation menu is visible              # steps/mens_page_steps.py:69
+  â†’ Verified: Navigation menu is visible
+    When I hover over each menu item                  # steps/mens_page_steps.py:76
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "steps\mens_page_steps.py", line 81, in step_hover_menu_items
+          success = context.mens_page.hover_over_menu_item(item)
+        File "c:\Users\ciprian.panzaru\Desktop\UTM\Semestrul VII\CPP\CPP\Laboratorul6\pages\mens_page.py", line 116, in hover_over_menu_item
+          element = self.find_element(menu_locators[menu_item_name])
+        File "c:\Users\ciprian.panzaru\Desktop\UTM\Semestrul VII\CPP\CPP\Laboratorul6\pages\base_page.py", line 28, in find_element
+          return self.driver.find_element("css selector", locator)
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 741, in find_element
+          return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 347, in execute
+          self.error_handler.check_response(response)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+          raise exception_class(message, screen, stacktrace)
+      selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+        (Session info: chrome=142.0.7444.176); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+      Stacktrace:
+      Symbols not available. Dumping unresolved backtrace:
+      	0xbf4103
+      	0xbf4144
+      	0x9fe71d
+      	0xa05493
+      	0xa07864
+      	0xa078f8
+      	0xa49886
+      	0xa4a41b
+      	0xa917f2
+      	0xa6c954
+      	0xa8ee17
+      	0xa6c706
+      	0xa3da30
+      	0xa3ed54
+      	0xe657b4
+      	0xe6098a
+      	0xc1c392
+      	0xc0c4c8
+      	0xc1324d
+      	0xbfc478
+      	0xbfc63c
+      	0xbe67ca
+      	0x76b25d49
+      	0x77e7d6db
+      	0x77e7d661
+
+    Then each menu item should respond to hover       # None
+    And when I click on "Home" link                   # None
+    Then I should be redirected to home page          # None
+    And when I click on "Womens" link                 # None
+    Then I should be redirected to womens page        # None
+    And when I click on "Mens" link                   # None
+    Then I should stay on mens page                   # None
+    And no 404 or 500 errors should appear            # None
+
+  @normal
+  Scenario: TC3 - Test product display in Mens section         # features/05_mens_page.feature:34
+    Given I navigate to the Mens page                          # steps/mens_page_steps.py:14
+[STEP] Navigated to Mens page: https://adoring-pasteur-3ae17d.netlify.app/mens.html
+  â†’ Navigated to Mens page
+    Given products from Mens category are loaded               # steps/mens_page_steps.py:139
+[STEP] Found 11 products on page
+  â†’ Verified: 11 products loaded
+    When I scroll to products section                          # steps/mens_page_steps.py:147
+[STEP] Scrolled to products section
+  â†’ Scrolled to products section
+    Then each product should display                           # steps/mens_page_steps.py:154
+      | attribute  |
+      | image      |
+      | title      |
+      | price      |
+      | action_btn |
+[STEP] Found 11 products on page
+      Assertion Failed: Product 0 missing title
+
+    And product data should be correctly fetched from database # None
+    And product graphic consistency should be maintained       # None
+
+  @low @failed
+  Scenario: TC4 - Test Contact link in footer   # features/05_mens_page.feature:47
+    Given I navigate to the Mens page           # steps/mens_page_steps.py:14
+[STEP] Navigated to Mens page: https://adoring-pasteur-3ae17d.netlify.app/mens.html
+  â†’ Navigated to Mens page
+    Given the footer is visible                 # steps/mens_page_steps.py:201
+  â†’ Verified: Footer is visible
+    When I scroll to footer section             # steps/mens_page_steps.py:194
+[STEP] Scrolled to footer
+  â†’ Scrolled to footer section
+    And I click on "Contact" link               # steps/mens_page_steps.py:94
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "steps\mens_page_steps.py", line 97, in step_click_menu_link
+          success = context.mens_page.click_menu_link(link_name)
+        File "c:\Users\ciprian.panzaru\Desktop\UTM\Semestrul VII\CPP\CPP\Laboratorul6\pages\mens_page.py", line 132, in click_menu_link
+          self.click(links[link_name])
+          ~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+        File "c:\Users\ciprian.panzaru\Desktop\UTM\Semestrul VII\CPP\CPP\Laboratorul6\pages\base_page.py", line 36, in click
+          self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, locator)))
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\support\wait.py", line 92, in until
+          value = method(self._driver)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\support\expected_conditions.py", line 355, in _predicate
+          target = driver.find_element(*target)  # grab element at locator
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 741, in find_element
+          return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 347, in execute
+          self.error_handler.check_response(response)
+          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+          raise exception_class(message, screen, stacktrace)
+      selenium.common.exceptions.InvalidSelectorException: Message: invalid selector: An invalid or illegal selector was specified
+        (Session info: chrome=142.0.7444.176); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#invalid-selector-exception
+      Stacktrace:
+      Symbols not available. Dumping unresolved backtrace:
+      	0xbf4103
+      	0xbf4144
+      	0x9fe71d
+      	0xa05493
+      	0xa07864
+      	0xa078f8
+      	0xa49886
+      	0xa4a41b
+      	0xa917f2
+      	0xa6c954
+      	0xa8ee17
+      	0xa6c706
+      	0xa3da30
+      	0xa3ed54
+      	0xe657b4
+      	0xe6098a
+      	0xc1c392
+      	0xc0c4c8
+      	0xc1324d
+      	0xbfc478
+      	0xbfc63c
+      	0xbe67ca
+      	0x76b25d49
+      	0x77e7d6db
+      	0x77e7d661
+
+    Then I should be redirected to contact page # None
+    And no broken links should occur            # None
+    And response time should be acceptable      # None
+
+  @high
+  Scenario: TC5 - Test page responsiveness                        # features/05_mens_page.feature:56
+    Given I navigate to the Mens page                             # steps/mens_page_steps.py:14
+[STEP] Navigated to Mens page: https://adoring-pasteur-3ae17d.netlify.app/mens.html
+  â†’ Navigated to Mens page
+    Given the Mens page is loaded                                 # None
+    When I view page on desktop (1920x1080)                       # None
+    Then all elements should be visible without horizontal scroll # None
+    And layout should be correct                                  # None
+    When I resize to tablet (768x1024)                            # None
+    Then layout should adapt correctly                            # None
+    And menu should remain accessible                             # None
+    And no overlapping elements                                   # None
+    When I resize to mobile (375x667)                             # None
+    Then vertical scroll should work smoothly                     # None
+    And touch interactions should be accessible                   # None
+    And buttons should be properly sized for touch                # None
+
+  @high @failed
+  Scenario: TC6 - Test search functionality              # features/05_mens_page.feature:71
+    Given I navigate to the Mens page                    # steps/mens_page_steps.py:14
+[STEP] Navigated to Mens page: https://adoring-pasteur-3ae17d.netlify.app/mens.html
+  â†’ Navigated to Mens page
+    Given the search bar is visible and active           # steps/mens_page_steps.py:324
+  â†’ Verified: Search bar is visible and active
+    When I enter "shirt" in search field                 # steps/mens_page_steps.py:332
+[STEP] Entered search term: shirt
+  â†’ Entered search term: shirt
+    And I press Enter or click Search button             # steps/mens_page_steps.py:340
+[STEP] Submitted search
+  â†’ Submitted search
+    Then search results should display relevant products # steps/mens_page_steps.py:347
+  âœ— Expected: Search results for 'shirt', Actual: Relevant products displayed
+    And no "Page not Found" error should occur           # steps/mens_page_steps.py:358
+  âœ— Expected: Error page, Actual: Not displayed
+    And search response time should be reasonable        # steps/mens_page_steps.py:367
+  âœ— Expected: Search response time, Actual: Reasonable (< 2s)
+
+
+Failing scenarios:
+  features/05_mens_page.feature:7  TC1 - Test page loads correctly
+  features/05_mens_page.feature:21  TC2 - Test navigation menu functionality
+  features/05_mens_page.feature:34  TC3 - Test product display in Mens section
+  features/05_mens_page.feature:47  TC4 - Test Contact link in footer
+  features/05_mens_page.feature:56  TC5 - Test page responsiveness
+
+0 features passed, 1 failed, 0 skipped
+1 scenario passed, 5 failed, 0 skipped
+20 steps passed, 4 failed, 23 skipped, 4 undefined
+Took 0m36.993s
+
+======================================================================
+ELITE SHOPPY - TEST AUTOMATION (Browser VIZIBIL)
+======================================================================
+Testele se vor executa secvential pe website-ul real.
+Deschide browserul Chrome si urmareste executia!
+
+>> Ruleaza: TESTELE PAGINII MENS (TC1-TC6)
+
+
+======================================================================
+EROARE - UNELE TESTE AU ESUAT
+======================================================================
+
+
+
+STDERR:
+
+You can implement step definitions for undefined steps with these snippets:
+
+@then(u'when I click on "Home" link')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then when I click on "Home" link')
+
+
+@then(u'when I click on "Womens" link')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then when I click on "Womens" link')
+
+
+@then(u'when I click on "Mens" link')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then when I click on "Mens" link')
+
+
+@given(u'the Mens page is loaded')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Given the Mens page is loaded')
+
+
+
+Return code: 1

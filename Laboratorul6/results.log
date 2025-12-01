@@ -1,0 +1,800 @@
+Feature: Test Mens Page # features/05_mens_page.feature:1
+
+  Background:   # features/05_mens_page.feature:3
+
+  @smoke @normal
+  Scenario: TC1 - Test page loads correctly      # features/05_mens_page.feature:7
+    Given I navigate to the Mens page            # steps/mens_page_steps.py:14
+[STEP] Navigated to Mens page: https://adoring-pasteur-3ae17d.netlify.app/mens
+  → Navigated to Mens page
+    Given the Mens page is loaded completely     # steps/mens_page_steps.py:24
+[STEP] Mens page loaded successfully
+  → Verified: Mens page loaded completely
+    When I wait for page to load                 # steps/mens_page_steps.py:31
+  → Waited for page load
+    Then the page should load within 3 seconds   # steps/mens_page_steps.py:38
+[STEP] Mens page loaded successfully
+  ✗ Expected: Load time: 0.04s, Actual: < 3 seconds
+    And all main elements should be visible      # steps/mens_page_steps.py:46
+      | element  |
+      | title    |
+      | products |
+      | header   |
+      | footer   |
+[STEP] Element footer not found
+      Assertion Failed: Not all main elements are visible
+      Captured logging:
+      INFO:WDM:====== WebDriver manager ======
+      INFO:WDM:Get LATEST chromedriver version for google-chrome
+      INFO:WDM:Get LATEST chromedriver version for google-chrome
+      INFO:WDM:Driver [C:\Users\ciprian.panzaru\.wdm\drivers\chromedriver\win64\142.0.7444.175\chromedriver-win32/THIRD_PARTY_NOTICES.chromedriver] found in cache
+
+    And product images should be loaded          # None
+    And CSS and JS resources should be available # None
+
+  @high
+  Scenario: TC2 - Test navigation menu functionality  # features/05_mens_page.feature:21
+    Given I navigate to the Mens page                 # steps/mens_page_steps.py:14
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+          sock = connection.create_connection(
+              (self._dns_host, self.port),
+          ...<2 lines>...
+              socket_options=self.socket_options,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          raise err
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+          response = self._make_request(
+              conn,
+          ...<10 lines>...
+              **response_kw,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+          conn.request(
+          ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<6 lines>...
+              enforce_content_length=enforce_content_length,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 494, in request
+          self.endheaders()
+          ~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 325, in connect
+          self.sock = self._new_conn()
+                      ~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+          raise NewConnectionError(
+              self, f"Failed to establish a new connection: {e}"
+          ) from e
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001CFE368E2C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "steps\mens_page_steps.py", line 20, in step_navigate_to_mens
+          context.mens_page.open()
+          ~~~~~~~~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\Desktop\UTM\Semestrul VII\CPP\CPP\Laboratorul6\pages\mens_page.py", line 22, in open
+          self.driver.get(self.mens_url)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 356, in get
+          self.execute(Command.GET, {"url": url})
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+          response = self.command_executor.execute(driver_command, params)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 300, in execute
+          return self._request(command_info[0], url, body=data)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 321, in _request
+          response = self._conn.request(method, url, body=body, headers=headers)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+          return self.request_encode_body(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+              method, url, fields=fields, headers=headers, **urlopen_kw
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+          return self.urlopen(method, url, **extra_kw)
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+          response = conn.urlopen(method, u.request_uri, **kw)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+          retries = retries.increment(
+              method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+          raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=59759): Max retries exceeded with url: /session/813d68608f543a3e54c8ee989a181b33/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE368E2C0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+      
+      Captured logging:
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE36D6850>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE36D5D10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE368E190>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+
+    Given the navigation menu is visible              # None
+    When I hover over each menu item                  # None
+    Then each menu item should respond to hover       # None
+    And when I click on "Home" link                   # None
+    Then I should be redirected to home page          # None
+    And when I click on "Womens" link                 # None
+    Then I should be redirected to womens page        # None
+    And when I click on "Mens" link                   # None
+    Then I should stay on mens page                   # None
+    And no 404 or 500 errors should appear            # None
+
+  @normal
+  Scenario: TC3 - Test product display in Mens section         # features/05_mens_page.feature:34
+    Given I navigate to the Mens page                          # steps/mens_page_steps.py:14
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+          sock = connection.create_connection(
+              (self._dns_host, self.port),
+          ...<2 lines>...
+              socket_options=self.socket_options,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          raise err
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+          response = self._make_request(
+              conn,
+          ...<10 lines>...
+              **response_kw,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+          conn.request(
+          ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<6 lines>...
+              enforce_content_length=enforce_content_length,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 494, in request
+          self.endheaders()
+          ~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 325, in connect
+          self.sock = self._new_conn()
+                      ~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+          raise NewConnectionError(
+              self, f"Failed to establish a new connection: {e}"
+          ) from e
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001CFE37217B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "steps\mens_page_steps.py", line 20, in step_navigate_to_mens
+          context.mens_page.open()
+          ~~~~~~~~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\Desktop\UTM\Semestrul VII\CPP\CPP\Laboratorul6\pages\mens_page.py", line 22, in open
+          self.driver.get(self.mens_url)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 356, in get
+          self.execute(Command.GET, {"url": url})
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+          response = self.command_executor.execute(driver_command, params)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 300, in execute
+          return self._request(command_info[0], url, body=data)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 321, in _request
+          response = self._conn.request(method, url, body=body, headers=headers)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+          return self.request_encode_body(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+              method, url, fields=fields, headers=headers, **urlopen_kw
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+          return self.urlopen(method, url, **extra_kw)
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+          response = conn.urlopen(method, u.request_uri, **kw)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+          retries = retries.increment(
+              method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+          raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=59759): Max retries exceeded with url: /session/813d68608f543a3e54c8ee989a181b33/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE37217B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+      
+      Captured logging:
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE367B0B0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3720E20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3721370>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+
+    Given products from Mens category are loaded               # None
+    When I scroll to products section                          # None
+    Then each product should display                           # None
+      | attribute  |
+      | image      |
+      | title      |
+      | price      |
+      | action_btn |
+    And product data should be correctly fetched from database # None
+    And product graphic consistency should be maintained       # None
+
+  @low @failed
+  Scenario: TC4 - Test Contact link in footer   # features/05_mens_page.feature:47
+    Given I navigate to the Mens page           # steps/mens_page_steps.py:14
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+          sock = connection.create_connection(
+              (self._dns_host, self.port),
+          ...<2 lines>...
+              socket_options=self.socket_options,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          raise err
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+          response = self._make_request(
+              conn,
+          ...<10 lines>...
+              **response_kw,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+          conn.request(
+          ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<6 lines>...
+              enforce_content_length=enforce_content_length,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 494, in request
+          self.endheaders()
+          ~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 325, in connect
+          self.sock = self._new_conn()
+                      ~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+          raise NewConnectionError(
+              self, f"Failed to establish a new connection: {e}"
+          ) from e
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001CFE37227A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "steps\mens_page_steps.py", line 20, in step_navigate_to_mens
+          context.mens_page.open()
+          ~~~~~~~~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\Desktop\UTM\Semestrul VII\CPP\CPP\Laboratorul6\pages\mens_page.py", line 22, in open
+          self.driver.get(self.mens_url)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 356, in get
+          self.execute(Command.GET, {"url": url})
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+          response = self.command_executor.execute(driver_command, params)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 300, in execute
+          return self._request(command_info[0], url, body=data)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 321, in _request
+          response = self._conn.request(method, url, body=body, headers=headers)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+          return self.request_encode_body(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+              method, url, fields=fields, headers=headers, **urlopen_kw
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+          return self.urlopen(method, url, **extra_kw)
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+          response = conn.urlopen(method, u.request_uri, **kw)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+          retries = retries.increment(
+              method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+          raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=59759): Max retries exceeded with url: /session/813d68608f543a3e54c8ee989a181b33/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE37227A0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+      
+      Captured logging:
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3720D10>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3721F20>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3722360>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+
+    Given the footer is visible                 # None
+    When I scroll to footer section             # None
+    And I click on "Contact" link               # None
+    Then I should be redirected to contact page # None
+    And no broken links should occur            # None
+    And response time should be acceptable      # None
+
+  @high
+  Scenario: TC5 - Test page responsiveness                        # features/05_mens_page.feature:56
+    Given I navigate to the Mens page                             # steps/mens_page_steps.py:14
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+          sock = connection.create_connection(
+              (self._dns_host, self.port),
+          ...<2 lines>...
+              socket_options=self.socket_options,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          raise err
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+          response = self._make_request(
+              conn,
+          ...<10 lines>...
+              **response_kw,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+          conn.request(
+          ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<6 lines>...
+              enforce_content_length=enforce_content_length,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 494, in request
+          self.endheaders()
+          ~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 325, in connect
+          self.sock = self._new_conn()
+                      ~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+          raise NewConnectionError(
+              self, f"Failed to establish a new connection: {e}"
+          ) from e
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001CFE3723680>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "steps\mens_page_steps.py", line 20, in step_navigate_to_mens
+          context.mens_page.open()
+          ~~~~~~~~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\Desktop\UTM\Semestrul VII\CPP\CPP\Laboratorul6\pages\mens_page.py", line 22, in open
+          self.driver.get(self.mens_url)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 356, in get
+          self.execute(Command.GET, {"url": url})
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+          response = self.command_executor.execute(driver_command, params)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 300, in execute
+          return self._request(command_info[0], url, body=data)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 321, in _request
+          response = self._conn.request(method, url, body=body, headers=headers)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+          return self.request_encode_body(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+              method, url, fields=fields, headers=headers, **urlopen_kw
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+          return self.urlopen(method, url, **extra_kw)
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+          response = conn.urlopen(method, u.request_uri, **kw)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+          retries = retries.increment(
+              method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+          raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=59759): Max retries exceeded with url: /session/813d68608f543a3e54c8ee989a181b33/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3723680>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+      
+      Captured logging:
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3721BF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3722CF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3723240>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+
+    Given the Mens page is loaded                                 # None
+    When I view page on desktop (1920x1080)                       # None
+    Then all elements should be visible without horizontal scroll # None
+    And layout should be correct                                  # None
+    When I resize to tablet (768x1024)                            # None
+    Then layout should adapt correctly                            # None
+    And menu should remain accessible                             # None
+    And no overlapping elements                                   # None
+    When I resize to mobile (375x667)                             # None
+    Then vertical scroll should work smoothly                     # None
+    And touch interactions should be accessible                   # None
+    And buttons should be properly sized for touch                # None
+
+  @high @failed
+  Scenario: TC6 - Test search functionality              # features/05_mens_page.feature:71
+    Given I navigate to the Mens page                    # steps/mens_page_steps.py:14
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 198, in _new_conn
+          sock = connection.create_connection(
+              (self._dns_host, self.port),
+          ...<2 lines>...
+              socket_options=self.socket_options,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+          raise err
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+          sock.connect(sa)
+          ~~~~~~~~~~~~^^^^
+      ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+          response = self._make_request(
+              conn,
+          ...<10 lines>...
+              **response_kw,
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 493, in _make_request
+          conn.request(
+          ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<6 lines>...
+              enforce_content_length=enforce_content_length,
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 494, in request
+          self.endheaders()
+          ~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1333, in endheaders
+          self._send_output(message_body, encode_chunked=encode_chunked)
+          ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1093, in _send_output
+          self.send(msg)
+          ~~~~~~~~~^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\http\client.py", line 1037, in send
+          self.connect()
+          ~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 325, in connect
+          self.sock = self._new_conn()
+                      ~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connection.py", line 213, in _new_conn
+          raise NewConnectionError(
+              self, f"Failed to establish a new connection: {e}"
+          ) from e
+      urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x000001CFE3854490>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+      
+      The above exception was the direct cause of the following exception:
+      
+      Traceback (most recent call last):
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\model.py", line 1329, in run
+          match.run(runner.context)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\behave\matchers.py", line 98, in run
+          self.func(context, *args, **kwargs)
+          ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "steps\mens_page_steps.py", line 20, in step_navigate_to_mens
+          context.mens_page.open()
+          ~~~~~~~~~~~~~~~~~~~~~~^^
+        File "C:\Users\ciprian.panzaru\Desktop\UTM\Semestrul VII\CPP\CPP\Laboratorul6\pages\mens_page.py", line 22, in open
+          self.driver.get(self.mens_url)
+          ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 356, in get
+          self.execute(Command.GET, {"url": url})
+          ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 345, in execute
+          response = self.command_executor.execute(driver_command, params)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 300, in execute
+          return self._request(command_info[0], url, body=data)
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\selenium\webdriver\remote\remote_connection.py", line 321, in _request
+          response = self._conn.request(method, url, body=body, headers=headers)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 143, in request
+          return self.request_encode_body(
+                 ~~~~~~~~~~~~~~~~~~~~~~~~^
+              method, url, fields=fields, headers=headers, **urlopen_kw
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\_request_methods.py", line 278, in request_encode_body
+          return self.urlopen(method, url, **extra_kw)
+                 ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\poolmanager.py", line 459, in urlopen
+          response = conn.urlopen(method, u.request_uri, **kw)
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 871, in urlopen
+          return self.urlopen(
+                 ~~~~~~~~~~~~^
+              method,
+              ^^^^^^^
+          ...<13 lines>...
+              **response_kw,
+              ^^^^^^^^^^^^^^
+          )
+          ^
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+          retries = retries.increment(
+              method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+          )
+        File "C:\Users\ciprian.panzaru\AppData\Local\Programs\Python\Python314\Lib\site-packages\urllib3\util\retry.py", line 519, in increment
+          raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+      urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='localhost', port=59759): Max retries exceeded with url: /session/813d68608f543a3e54c8ee989a181b33/url (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3854490>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+      
+      Captured logging:
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3722BE0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3723BD0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+      WARNING:urllib3.connectionpool:Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NewConnectionError('<urllib3.connection.HTTPConnection object at 0x000001CFE3854050>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it')': /session/813d68608f543a3e54c8ee989a181b33/url
+
+    Given the search bar is visible and active           # None
+    When I enter "shirt" in search field                 # None
+    And I press Enter or click Search button             # None
+    Then search results should display relevant products # None
+    And no "Page not Found" error should occur           # None
+    And search response time should be reasonable        # None
+
+
+Failing scenarios:
+  features/05_mens_page.feature:7  TC1 - Test page loads correctly
+  features/05_mens_page.feature:21  TC2 - Test navigation menu functionality
+  features/05_mens_page.feature:34  TC3 - Test product display in Mens section
+  features/05_mens_page.feature:47  TC4 - Test Contact link in footer
+  features/05_mens_page.feature:56  TC5 - Test page responsiveness
+  features/05_mens_page.feature:71  TC6 - Test search functionality
+
+0 features passed, 1 failed, 0 skipped
+0 scenarios passed, 6 failed, 0 skipped
+4 steps passed, 6 failed, 37 skipped, 4 undefined
+Took 1m40.552s
+
+======================================================================
+ELITE SHOPPY - TEST AUTOMATION (Browser VIZIBIL)
+======================================================================
+Testele se vor executa secvential pe website-ul real.
+Deschide browserul Chrome si urmareste executia!
+
+>> Ruleaza: TESTELE PAGINII MENS (TC1-TC6)
+
+
+======================================================================
+EROARE - UNELE TESTE AU ESUAT
+======================================================================
+

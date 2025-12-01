@@ -1,0 +1,54 @@
+Feature: Test Mens Page
+  Background: 
+
+  Scenario: TC1 - Test page loads correctly
+    Given I navigate to the Mens page ... passed in 5.738s
+    Given the Mens page is loaded completely ... passed in 0.030s
+    When I wait for page to load ... passed in 2.001s
+    Then the page should load within 3 seconds ... passed in 0.032s
+    And all main elements should be visible ... passed in 0.152s
+      | element  |
+      | title    |
+      | products |
+      | header   |
+      | footer   |
+    And product images should be loaded ... passed in 0.315s
+    And CSS and JS resources should be available ... passed in 0.013s
+
+  Scenario: TC2 - Test navigation menu functionality
+    Given I navigate to the Mens page ... passed in 0.573s
+    Given the navigation menu is visible ... passed in 0.055s
+    When I hover over each menu item ... passed in 1.247s
+    Then each menu item should respond to hover ... passed in 0.001s
+    And when I click on "Home" link ... undefined in 0.000s
+
+  Scenario: TC3 - Test product display in Mens section
+    Given I navigate to the Mens page ... passed in 0.593s
+    Given products from Mens category are loaded ... passed in 0.033s
+    When I scroll to products section ... passed in 0.544s
+    Then each product should display ... passed in 1.735s
+      | attribute  |
+      | image      |
+      | title      |
+      | price      |
+      | action_btn |
+    And product data should be correctly fetched from database ... passed in 0.980s
+    And product graphic consistency should be maintained ... passed in 1.115s
+
+  Scenario: TC4 - Test Contact link in footer
+    Given I navigate to the Mens page ... passed in 0.612s
+    Given the footer is visible ... failed in 0.041s
+Assertion Failed: Footer not visible
+
+  Scenario: TC5 - Test page responsiveness
+    Given I navigate to the Mens page ... passed in 0.693s
+    Given the Mens page is loaded ... undefined in 0.000s
+
+  Scenario: TC6 - Test search functionality
+    Given I navigate to the Mens page ... passed in 0.462s
+    Given the search bar is visible and active ... passed in 0.064s
+    When I enter "shirt" in search field ... passed in 0.216s
+    And I press Enter or click Search button ... passed in 2.178s
+    Then search results should display relevant products ... failed in 20.082s
+Assertion Failed: No search results displayed
+

@@ -29,7 +29,6 @@ namespace Laboratorul5
 			// Verifică dacă antetul YouTube (logo) este afișat
 			var logo = driver.FindElement(By.Id("logo-icon"));
 			Assert.That(logo.Displayed, Is.True, "Antetul YouTube nu este afișat!");
-			Console.ReadLine();
 		}
 
 		[TearDown]

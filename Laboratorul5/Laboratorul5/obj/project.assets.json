@@ -1920,11 +1920,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ciprian.panzaru\\Desktop\\UTM\\Semestrul VII\\CPP\\Laboratorul5\\Laboratorul5\\Laboratorul5.csproj",
+      "projectUniqueName": "C:\\Users\\ciprian.panzaru\\Desktop\\UTM\\Semestrul VII\\CPP\\CPP\\Laboratorul5\\Laboratorul5\\Laboratorul5.csproj",
       "projectName": "Laboratorul5",
-      "projectPath": "C:\\Users\\ciprian.panzaru\\Desktop\\UTM\\Semestrul VII\\CPP\\Laboratorul5\\Laboratorul5\\Laboratorul5.csproj",
+      "projectPath": "C:\\Users\\ciprian.panzaru\\Desktop\\UTM\\Semestrul VII\\CPP\\CPP\\Laboratorul5\\Laboratorul5\\Laboratorul5.csproj",
       "packagesPath": "C:\\Users\\ciprian.panzaru\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ciprian.panzaru\\Desktop\\UTM\\Semestrul VII\\CPP\\Laboratorul5\\Laboratorul5\\obj\\",
+      "outputPath": "C:\\Users\\ciprian.panzaru\\Desktop\\UTM\\Semestrul VII\\CPP\\CPP\\Laboratorul5\\Laboratorul5\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

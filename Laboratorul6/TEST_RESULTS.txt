@@ -1,0 +1,20 @@
+
+
+================================================================================
+                         TEST RESULTS SUMMARY
+================================================================================
+
+┌─────────┬──────────────────────────────────┬────────┬──────────┐
+│ TC#     │ Denumire                         │ Status │ Priorita │
+├─────────┼──────────────────────────────────┼────────┼──────────┤
+│ TC1     │ Test page loads correctly        │ OK     │ Normal   │
+│ TC2     │ Test navigation menu functionality │ OK     │ High     │
+│ TC3     │ Test product display in Mens section │ OK     │ Normal   │
+│ TC4     │ Test Contact link in footer      │ FAIL   │ Low      │
+│ TC5     │ Test page responsiveness         │ SKIP   │ High     │
+│ TC6     │ Test search functionality        │ FAIL   │ High     │
+└─────────┴──────────────────────────────────┴────────┴──────────┘
+
+REZULTATE: 3/6 PASSED (50%) | 2 FAILED | 1 SKIPPED
+
+================================================================================
